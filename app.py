@@ -11,8 +11,10 @@ dataset_dir_path = "cat-breeds"
 # Load model
 model = load_model('cat_breed_model.keras')
 
-# Load breed names from breeds directory
-breed_labels = list(os.listdir(dataset_dir_path))
+# Load breed names from breed-labels.txt
+with open("breed-labels.txt", "r") as file:
+    breed_labels = file.readlines()
+breed_labels = [x.strip() for x in breed_labels]
 
 st.title("Cat Breed Classifier")
 
